@@ -75,4 +75,29 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal [I18n.translate('errors.messages.taken')],
                  product.errors[:title]
   end
+
+  def new_poduct_from_title(title)
+    Product.new(title:        title,
+                description:  "Good book",
+                image_url:    "book.png",
+                price:        1)
+  end
+  test "title could not have less than 3 cherecters" do
+    assert new_poduct_from_title("ti").invalid?
+  end
+
+  test "title could not have more than 64 cherecters" do
+    assert new_poduct_from_title("ititititititititititititititititititititititititititititititititi")
+    .invalid?
+  end
+
+  test "title could have at least 3 cherecters" do
+    assert new_poduct_from_title("tii").valid?
+  end
+
+  test "title could have at least 64 cherecters" do
+    assert new_poduct_from_title("titititititititititititititititititititititititititititititititi")
+    .valid?
+  end
+
 end
