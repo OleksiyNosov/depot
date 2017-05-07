@@ -8,22 +8,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="<%= controller.controller_name %>">
-    <div class="banner">
-      <%= image_tag 'logo.svg', alt: 'Random Items Logo'  %>
-      <span class="title"><%= @page_title %></span>
+    <div id="banner">
+      <%= image_tag 'logo.svg', alt: 'Randominium'  %>
+      <span id="title"><%= @page_title %></span>
     </div>
-    <div class="columns">
-      <div class="side">
+    <div id="columns">
+      <div id="side">
         <ul>
-          <li><a href="#"></a>Home</li>
-          <li><a href="#"></a>Questions</li>
-          <li><a href="#"></a>News</li>
-          <li><a href="#"></a>Contact</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Questions</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </div>
-    </div>
-    <div class="main">
-      <%= yield %>
+      <div id="main">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
