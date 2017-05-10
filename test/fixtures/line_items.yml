@@ -7,3 +7,7 @@ one:
 two:
   product: ruby_book
   cart: one
+
+three:
+  product: three
+  cart: three
