@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'admin/index'
+  get 'admin' => 'admin#index'
 
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
+  controller :session do
+    get 'login' => :new
+    get 'login' => :create
+    delete 'logout' => :destroy
+  end
 
   resources :users
   resources :orders
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
-  # For details on the DSL available within this file, see 
+  # For details on the DSL available within this file, see
   # http://guides.rubyonrails.org/routing.html
 end
