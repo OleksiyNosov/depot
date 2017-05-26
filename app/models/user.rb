@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 4,
+    too_short: "should have at least %{count} characters." }
   has_secure_password
   after_destroy :ensure_an_admin_remains
 
